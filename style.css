@@ -177,6 +177,26 @@ body {
   }
 }
 
+    /* ========== CONFETTI ========== */
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      top: -10px;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
 /* ========== HERO SECTION ========== */
 .hero {
   min-height: 100vh;
