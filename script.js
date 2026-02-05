@@ -19,7 +19,8 @@
   // INTRO ANIMATION
   // ==========================================
   setTimeout(() => {
-  document.getElementById('intro').classList.add('hidden');
+    document.getElementById('intro').classList.add('hidden');
+    createBalloons();
   }, 3500);
 
   // ==========================================
@@ -66,7 +67,7 @@
   });
 
 
-// ==========================================
+    // ==========================================
     // CONFETTI
     // ==========================================
     function triggerConfetti() {
@@ -88,6 +89,40 @@
       }
 
       setTimeout(() => container.innerHTML = '', 6000);
+    }
+
+    // ==========================================
+    // BALLOONS
+    // ==========================================
+    function createBalloons() {
+      const container = document.getElementById('balloons');
+      const colors = [
+        ['#f472b6', '#ec4899'],
+        ['#a78bfa', '#8b5cf6'],
+        ['#60a5fa', '#3b82f6'],
+        ['#fb7185', '#f43f5e'],
+        ['#e879f9', '#d946ef'],
+        ['#818cf8', '#6366f1']
+      ];
+      const positions = ['5%', '12%', '85%', '92%', '8%', '88%'];
+
+      positions.forEach((pos, i) => {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        balloon.style.left = pos;
+        balloon.style.animationDelay = (i * 0.8) + 's';
+        
+        const body = document.createElement('div');
+        body.className = 'balloon-body';
+        body.style.background = `linear-gradient(135deg, ${colors[i % colors.length][0]}, ${colors[i % colors.length][1]})`;
+        
+        const string = document.createElement('div');
+        string.className = 'balloon-string';
+        
+        balloon.appendChild(body);
+        balloon.appendChild(string);
+        container.appendChild(balloon);
+      });
     }
 
   // ==========================================
