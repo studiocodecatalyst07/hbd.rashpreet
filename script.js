@@ -109,9 +109,10 @@
 
       positions.forEach((pos, i) => {
         const balloon = document.createElement('div');
+        let delay = Math.random() * 0.5 + 0.4;
         balloon.className = 'balloon';
         balloon.style.left = pos;
-        balloon.style.animationDelay = (i * 0.8) + 's';
+        balloon.style.animationDelay = (i * delay) + 's';
         
         const body = document.createElement('div');
         body.className = 'balloon-body';
